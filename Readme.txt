@@ -12,7 +12,7 @@ This is a public fork of SyntaxBox with the following goals:
 * support .NET Framework 3.5 and upwards
 * ensure continuing maintenance
 * add new features
-* give every improvements back to the open source community
+* give every improvement back to the open source community
 
 History
 -------
@@ -20,8 +20,8 @@ History
 2001: Roger Alsing started to write the first version of SyntaxBox as 
       properitary user control for his company named Compona.
 2005: Project wents open source due to lack of time.
-2010: Last update at the project home on Google Code (maybe again lack of time).
-2013: Adopted Syntaxbox and started this fork.
+2010: Last update at the project home on Google Code (again lack of time?).
+2013: Adopted SyntaxBox and started this fork.
 
 SyntaxBox (Origin)
 ------------------
