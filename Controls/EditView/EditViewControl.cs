@@ -201,6 +201,8 @@ namespace Alsing.Windows.Forms.SyntaxBox
         public event CopyHandler ClipboardUpdated = null;
 
         public event AutoListBeforeInsertTextHandler AutoListInsertText = null;
+        public event AutoListAfterInsertTextHandler AutoListInsertedText = null;
+
 
         #endregion
 
@@ -1455,7 +1457,10 @@ namespace Alsing.Windows.Forms.SyntaxBox
                 Caret.Position.X = AutoListStartPos.X;
                 InsertText(e.Text );
                 SetFocus();
-            }
+
+                AutoListAfterInsertTextEventArgs afterEventArg = new AutoListAfterInsertTextEventArgs(e.Text);
+                OnAutoListAfterInsert(afterEventArg);
+            }            
             
         }
 
@@ -2637,6 +2642,12 @@ namespace Alsing.Windows.Forms.SyntaxBox
         {
             if (AutoListInsertText != null)
                 AutoListInsertText(this, e);
+        }
+
+        private void OnAutoListAfterInsert(AutoListAfterInsertTextEventArgs e)
+        {
+            if (AutoListInsertedText != null)
+                AutoListInsertedText(this, e);
         }
 
         private void OnClipboardUpdated(CopyEventArgs e)

@@ -25,6 +25,7 @@ namespace Alsing.Windows.Forms.SyntaxBox
     public delegate void WordMouseHandler(object sender, WordMouseEventArgs e);
 
     public delegate void AutoListBeforeInsertTextHandler(object sender, AutoListBeforeInsertTextEventArgs e);
+    public delegate void AutoListAfterInsertTextHandler(object sender, AutoListAfterInsertTextEventArgs e);
 
     /// <summary>
     /// Event arg for Copy/Cut actions.
@@ -165,6 +166,30 @@ namespace Alsing.Windows.Forms.SyntaxBox
         {
             this.Text = "";
         }
+
+        #endregion
+
+    }
+
+
+    [ComVisible(false)]
+    public class AutoListAfterInsertTextEventArgs : System.EventArgs
+    {
+        public string Text { get; set; }
+
+        #region "Konstruktoren"
+
+        public AutoListAfterInsertTextEventArgs(string txt)
+            : base()
+        {
+            this.Text = txt;
+        }
+
+        public AutoListAfterInsertTextEventArgs()
+        {
+            this.Text = "";
+        }
+
 
         #endregion
 

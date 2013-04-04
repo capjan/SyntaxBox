@@ -159,7 +159,7 @@ namespace Alsing.Windows.Forms
         public event RowMouseHandler RowDoubleClick = null;
 
         public event AutoListBeforeInsertTextHandler AutoListBeforeInsertText = null;
-
+        public event AutoListAfterInsertTextHandler AutoListAfterInsertText = null;
         #endregion //END PUBLIC EGENTS
 
         #region Public Properties
@@ -1789,6 +1789,13 @@ namespace Alsing.Windows.Forms
                 handler(sender, e);
         }
 
+        protected virtual void OnAutoListAfterInsertText(Object sender, AutoListAfterInsertTextEventArgs e)
+        {
+            AutoListAfterInsertTextHandler handler = AutoListAfterInsertText;
+            if (handler != null)
+                handler(sender,e);
+        }
+
         protected virtual void OnParse(object Sender, EventArgs e)
         {
             foreach (EditViewControl ev in Views)
@@ -2266,6 +2273,11 @@ namespace Alsing.Windows.Forms
             OnAutoListBeforeInsertText(sender, e);
         }
 
+        private void View_AutolistAfterInsertText(object sender, AutoListAfterInsertTextEventArgs e)
+        {
+            OnAutoListAfterInsertText(sender, e);
+        }
+
 
         protected override void CreateViews()
         {
@@ -2313,6 +2325,7 @@ namespace Alsing.Windows.Forms
                 ev.RowMouseUp += View_RowMouseUp;
                 ev.ClipboardUpdated += View_ClipboardUpdated;
                 ev.AutoListInsertText += View_AutolistBeforeInsertText;
+                ev.AutoListInsertedText += View_AutolistAfterInsertText;
             }
 
             DoOnce = true;
