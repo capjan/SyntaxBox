@@ -9,10 +9,10 @@ Forms toolkit. It's originally created by Roger Alsing and published under the
 terms of the GNU Lesser General Public License (LGPL).
 
 This is a public fork of SyntaxBox with the following goals:
-* support .NET Framework 3.5 and upwards
-* ensure continuing maintenance
+* support current versions of the .NET Framework
+* ensure maintenance - at least as long as I need the library ;)
 * add new features
-* give every improvement back to the open source community
+* give improvements back to the open source community
 
 History
 -------
